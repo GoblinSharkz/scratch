@@ -6,7 +6,7 @@ const router = express.Router();
 
 router.get('/events',
 eventController.getEvents,
-  (req, res) => res.status(200).json(res.locals.hello)
+  (req, res) => res.status(200).json(res.locals.events)
 );
 
 
