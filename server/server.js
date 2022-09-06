@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const cors = require("cors");
 const path = require('path');
-const apiRouter = require('./routes/api');
+// const apiRouter = require('./routes/api');
 
 const PORT = 3000;
 
@@ -15,12 +15,15 @@ app.use('/build', express.static(path.join(__dirname, '../build')));
 
 //static file on '/'
 app.get('/', (req, res) => {
-    return res.status(200).sendFile(path.join(__dirname, '../index.html'));
-  });
+  return res.status(200).sendFile(path.join(__dirname, '../src/index.html'));
+});
+app.get('/bundle.js', (req, res) => {
+  return res.status(200).sendFile(path.join(__dirname, '../src/bundle.js'));
+});
 
 
 //router
-app.use('/', apiRouter);
+// app.use('/', apiRouter);
 
 
 //catch all
